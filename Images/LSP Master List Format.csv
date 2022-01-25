@@ -1,0 +1,62 @@
+Id,Name,Shape Library,Page ID,Contained By,Group,Line Source,Line Destination,Source Arrow,Destination Arrow,Status,Text Area 1
+1,Document,,,,,,,,,,LSP Master List Format
+2,Page,,,,,,,,,,Page 1
+3,Direct Access Storage (Hard Disk),Flowchart Shapes,2,,,,,,,,Master List (Top-Level)
+4,Direct Access Storage (Hard Disk),Flowchart Shapes,2,,,,,,,,Plugin List (Plugin-Level)
+5,Direct Access Storage (Hard Disk),Flowchart Shapes,2,,,,,,,,Tomes (Tome-Level)
+6,Direct Access Storage (Hard Disk),Flowchart Shapes,2,,,,,,,,Matching Spells (Spell-Level)
+7,Direct Access Storage (Hard Disk),Flowchart Shapes,2,,,,,,,,Prerequistes (Req-Level)
+8,Data (I/O),Flowchart Shapes,2,,,,,,,,Their Prerequisites
+9,Data (I/O),Flowchart Shapes,2,,,,,,,,The Spells they Teach
+10,Data (I/O),Flowchart Shapes,2,,,,,,,,Spell Tomes
+11,Direct Access Storage (Hard Disk),Flowchart Shapes,2,,,,,,,,Plugin List (Plugin-Level)
+12,Direct Access Storage (Hard Disk),Flowchart Shapes,2,,,,,,,,Tomes (Tome-Level)
+13,Direct Access Storage (Hard Disk),Flowchart Shapes,2,,,,,,,,Matching Spells (Spell-Level)
+14,Direct Access Storage (Hard Disk),Flowchart Shapes,2,,,,,,,,Prerequistes (Req-Level)
+15,Data (I/O),Flowchart Shapes,2,,,,,,,,Its Prerequisites
+16,Data (I/O),Flowchart Shapes,2,,,,,,,,Spell it Teaches
+17,Data (I/O),Flowchart Shapes,2,,,,,,,,Spell Tome
+18,Direct Access Storage (Hard Disk),Flowchart Shapes,2,,,,,,,,List of Prerequistes
+19,Stored Data,Flowchart Shapes,2,,,,,,,,A single spell
+20,Stored Data,Flowchart Shapes,2,,,,,,,,Fireball
+21,Stored Data,Flowchart Shapes,2,,,,,,,,Flamebolt
+22,Stored Data,Flowchart Shapes,2,,,,,,,,Fire Storm
+23,Direct Access Storage (Hard Disk),Flowchart Shapes,2,,,,,,,,FORM LIST: Fire Storm's Prerequisites
+24,Stored Data,Flowchart Shapes,2,,,,,,,,Fireball
+25,Stored Data,Flowchart Shapes,2,,,,,,,,Flame Cloak
+26,Stored Data,Flowchart Shapes,2,,,,,,,,Fire Rune
+27,Display,Flowchart Shapes,2,,,,,,,,Prerequisite Spells
+28,Display,Flowchart Shapes,2,,,,,,,,Plugin-Level Lists
+29,Display,Flowchart Shapes,2,,,,,,,,"Repeatable, Unordered"
+30,Data (I/O),Flowchart Shapes,2,,,,,,,,"Repeatable, Aligned"
+31,Direct Access Storage (Hard Disk),Flowchart Shapes,2,,,,,,,,FormList
+32,Stored Data,Flowchart Shapes,2,,,,,,,,Spell
+33,Terminator,Flowchart Shapes,2,,,,,,,,Spell Tome: Fireball
+34,Terminator,Flowchart Shapes,2,,,,,,,,Spell Tome: Fire Storm
+35,Terminator,Flowchart Shapes,2,,,,,,,,Book
+36,Stored Data,Flowchart Shapes,2,,,,,,,,Its Spell
+37,Terminator,Flowchart Shapes,2,,,,,,,,Spell Tome
+38,Stored Data,Flowchart Shapes,2,,,,,,,,Prerequisite Spells
+39,Display,Flowchart Shapes,2,,,,,,,,Prerequisite Spells
+40,Line,,2,,,28,4,None,Arrow,,
+41,Line,,2,,,4,5,None,Arrow,,
+42,Line,,2,,,4,6,None,Arrow,,
+43,Line,,2,,,4,7,None,Arrow,,
+44,Line,,2,,,11,12,None,Arrow,,
+45,Line,,2,,,11,13,None,Arrow,,
+46,Line,,2,,,11,14,None,Arrow,,
+47,Line,,2,,,28,11,None,Arrow,,
+48,Line,,2,,,15,,None,Arrow,,
+49,Line,,2,,,17,33,None,Arrow,,
+50,Line,,2,,,16,,None,Arrow,,
+51,Line,,2,,,8,,None,Arrow,,
+52,Line,,2,,,8,18,None,Arrow,,
+53,Line,,2,,,16,22,None,Arrow,,
+54,Line,,2,,,15,23,None,Arrow,,
+55,Line,,2,,,27,24,None,Arrow,,
+56,Line,,2,,,27,25,None,Arrow,,
+57,Line,,2,,,27,26,None,Arrow,,
+58,Line,,2,,,17,34,None,Arrow,,
+59,Line,,2,,,9,36,None,Arrow,,
+60,Line,,2,,,10,37,None,Arrow,,
+61,Line,,2,,,39,38,None,Arrow,,
