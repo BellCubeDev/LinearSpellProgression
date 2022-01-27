@@ -5,6 +5,8 @@
 # Linear Spell Progression
 
 A repo hosting Linear Spell Progression's FOMOD, the plugin template, and the Alpha/Beta releases.
+
+For info on the mod, see the [Wiki](https://github.com/BellCubeDev/LinearSpellProgression/wiki)
 <!--
 See [the Nexus page](https://www.nexusmods.com/skyrimspecialedition/mods/47087) for a description of the mod itself.
 <br>[Download Additional Clockwork](https://www.nexusmods.com/skyrimspecialedition/mods/47087)
