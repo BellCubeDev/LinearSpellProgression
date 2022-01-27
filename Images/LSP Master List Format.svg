@@ -47,7 +47,7 @@
         }
 
 
-        /* Book & Spell */
+        /* Book and Spell */
         .book {
             fill: #c7e8ac;
         }
