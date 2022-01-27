@@ -1,0 +1,469 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig5.0.xsd">
+    <moduleName position="Left" colour="000000">Linear Spell Progression</moduleName>
+    <!--moduleImage path="fomod\images\LinearSpellProgression.png" showImage="true" showFade="true" height="-1"/-->
+
+    <installSteps order="Explicit">
+
+<!--
+
+$$$$$$$$\                                                                               $$\
+$$  _____|                                                                              $$ |
+$$ |       $$$$$$\   $$$$$$\  $$$$$$\$$$$\   $$$$$$\  $$\  $$\  $$\  $$$$$$\   $$$$$$\  $$ |  $$\
+$$$$$\    $$  __$$\  \____$$\ $$  _$$  _$$\ $$  __$$\ $$ | $$ | $$ |$$  __$$\ $$  __$$\ $$ | $$  |
+$$  __|   $$ |  \__| $$$$$$$ |$$ / $$ / $$ |$$$$$$$$ |$$ | $$ | $$ |$$ /  $$ |$$ |  \__|$$$$$$  /
+$$ |      $$ |      $$  __$$ |$$ | $$ | $$ |$$   ____|$$ | $$ | $$ |$$ |  $$ |$$ |      $$  _$$<
+$$ |      $$ |      \$$$$$$$ |$$ | $$ | $$ |\$$$$$$$\ \$$$$$\$$$$  |\$$$$$$  |$$ |      $$ | \$$\
+\__|      \__|       \_______|\__| \__| \__| \_______| \_____\____/  \______/ \__|      \__|  \__|
+
+-->
+        <installStep name="Framework"><optionalFileGroups order="Explicit">
+
+            <group name="Linear Spell Progression" type="SelectAll"><plugins order="Explicit">
+
+                <!-- Description -->
+                <plugin name="Description">
+                    <description>Linear Spell Progression is an easily-patched framework for, well, the linear progression of spells. The goal is to remove the cheatiness of things like the Arcane Apparel mod in the Creation Club, which throws a bunch of spells in your face. Instead of simply buying the best spell tome—or grabbing it out of a chest—you will first need to learn other, more basic spells to achieve the desired effect.</description>
+                    <conditionFlags><flag name="Framework">1</flag></conditionFlags>
+                    <typeDescriptor><type name="Required" /></typeDescriptor>
+                </plugin>
+
+                <!-- Framework -->
+                <plugin name="LSP Framework">
+                    <description>The Linear Spell Progression Framework is LSP's backend. While it makes no gameplay changes on its own, it enables other plugins to add their own spell-learning rules. Because you are installing Linear Spell Progression, the framework is required.
+
+LSP's implementation ensures maximum compatibility by making no changes to vanilla records—and, engine limitations aside, does not even explicitly require Skyrim.esm as a master. And by only acting when Spell Tomes it's told to look for are used, the system will not interfere with other mods that add their own spell tomes.</description>
+                    <conditionFlags><flag name="Framework">1</flag></conditionFlags>
+                    <typeDescriptor><type name="Required" /></typeDescriptor>
+                </plugin>
+
+            </plugins></group>
+
+            <group name="FOMOD: Auto-Selection" type="SelectExactlyOne"><plugins order="Explicit">
+
+                <!-- Enable Auto-Select -->
+                <plugin name="Auto-Select Plugins">
+                    <description>Select plugins automatically so that you don't have to select every one by hand.
+Extremely useful if you have lots of magic mods.</description>
+                    <conditionFlags><flag name="AutoSelect">1</flag></conditionFlags>
+                    <typeDescriptor><type name="Recommended" /></typeDescriptor>
+                </plugin>
+
+                <!-- Disable Auto-Select -->
+                <plugin name="DON'T Auto-Select Plugins">
+                    <description>You'll have to select everything manually.</description>
+                    <conditionFlags><flag name="AutoSelect">0</flag></conditionFlags>
+                    <typeDescriptor><type name="Optional" /></typeDescriptor>
+                </plugin>
+
+            </plugins></group>
+
+        </optionalFileGroups></installStep>
+
+
+
+        <installStep name="Plugins"><optionalFileGroups order="Explicit">
+            <group name="Linear Spell Progression Plugins" type="SelectAll"><plugins>
+
+
+                <!-- Description -->
+                <plugin name="What Are LSP Plugins?">
+                    <description>LSP Plugins are completely optional modules. They add rules for the Linear Spell Progression system to enforce. They can even be implemented directly into other mods as soft requirements because they require little effort to implement (aside from balancing the prerequisites).</description>
+                    
+                    <conditionFlags><flag name="Framework">1</flag></conditionFlags>
+                    <typeDescriptor><type name="Required" /></typeDescriptor>
+                </plugin>
+
+
+            </plugins></group>
+
+<!--
+
+$$\    $$\                     $$\ $$\ $$\                                 $$$$$$$\  $$\        $$$$$$\
+$$ |   $$ |                    \__|$$ |$$ |                   $$\          $$  __$$\ $$ |      $$  __$$\
+$$ |   $$ | $$$$$$\  $$$$$$$\  $$\ $$ |$$ | $$$$$$\           $$ |         $$ |  $$ |$$ |      $$ /  \__|
+\$$\  $$  | \____$$\ $$  __$$\ $$ |$$ |$$ | \____$$\       $$$$$$$$\       $$ |  $$ |$$ |      $$ |
+ \$$\$$  /  $$$$$$$ |$$ |  $$ |$$ |$$ |$$ | $$$$$$$ |      \__$$  __|      $$ |  $$ |$$ |      $$ |
+  \$$$  /  $$  __$$ |$$ |  $$ |$$ |$$ |$$ |$$  __$$ |         $$ |         $$ |  $$ |$$ |      $$ |  $$\
+   \$  /   \$$$$$$$ |$$ |  $$ |$$ |$$ |$$ |\$$$$$$$ |         \__|         $$$$$$$  |$$$$$$$$\ \$$$$$$  |
+    \_/     \_______|\__|  \__|\__|\__|\__| \_______|                      \_______/ \________| \______/
+
+-->
+            <group name="Vanilla &amp; DLC" type="SelectAny"><plugins order="Explicit">
+
+
+                <!-- Skyrim.esm -->
+                <plugin name="Skyrim">
+                    <description>This Base-Game Master does not have an LSP Plugin! Will *you* be the next LSP Plugin Creator?
+
+Base-game, no-DLC Skyrim bundles 92 (used) spell tomes, many of which are higher-level versions of other spells.</description>
+                    <image path="Images\Gameplay\Plague of the Dead.jpg" />
+                    <conditionFlags><flag name="DLC_BGS_SSE_00 Skyrim">1</flag></conditionFlags>
+                    <typeDescriptor><type name="NotUsable"/></typeDescriptor>
+                </plugin>
+
+
+                <!-- Dawnguard.esm -->
+                <plugin name="Dawnguard">
+                    <description>This DLC does not have an LSP Plugin! Will *you* be the next LSP Plugin Creator?
+
+Skyrim's Dawnguard DLC comes with an additional 5 (used) spell tomes, 3 which summon creatures from the Soul Cairn, 1 which heals undead, and one which scorches undead with sunlight.</description>
+                    <image path="Images\Gameplay\Plague of the Dead.jpg" />
+                    <conditionFlags><flag name="DLC_BGS_SSE_02 Dawnguard">1</flag></conditionFlags>
+                    <typeDescriptor><type name="NotUsable"/></typeDescriptor>
+                </plugin>
+
+
+                <!-- Dragonborn.esm -->
+                <plugin name="Dragonborn">
+                    <description>This DLC does not have an LSP Plugin! Will *you* be the next LSP Plugin Creator?
+
+Skyrim's Dragonborn DLC adds 9 new spell tomes, a few that are present primarily in Apocrypha and many which can only be purchased from Talvas in Tel Mythrin.</description>
+                    <image path="Images\Gameplay\Plague of the Dead.jpg" />
+                    <conditionFlags><flag name="DLC_BGS_SSE_04 Dragonborn">1</flag></conditionFlags>
+                    <typeDescriptor><type name="NotUsable"/></typeDescriptor>
+                </plugin>
+
+
+            </plugins></group>
+
+<!--
+
+ $$$$$$\                                  $$\     $$\                          $$$$$$\  $$\           $$\
+$$  __$$\                                 $$ |    \__|                        $$  __$$\ $$ |          $$ |
+$$ /  \__| $$$$$$\   $$$$$$\   $$$$$$\  $$$$$$\   $$\  $$$$$$\  $$$$$$$\      $$ /  \__|$$ |$$\   $$\ $$$$$$$\
+$$ |      $$  __$$\ $$  __$$\  \____$$\ \_$$  _|  $$ |$$  __$$\ $$  __$$\     $$ |      $$ |$$ |  $$ |$$  __$$\
+$$ |      $$ |  \__|$$$$$$$$ | $$$$$$$ |  $$ |    $$ |$$ /  $$ |$$ |  $$ |    $$ |      $$ |$$ |  $$ |$$ |  $$ |
+$$ |  $$\ $$ |      $$   ____|$$  __$$ |  $$ |$$\ $$ |$$ |  $$ |$$ |  $$ |    $$ |  $$\ $$ |$$ |  $$ |$$ |  $$ |
+\$$$$$$  |$$ |      \$$$$$$$\ \$$$$$$$ |  \$$$$  |$$ |\$$$$$$  |$$ |  $$ |    \$$$$$$  |$$ |\$$$$$$  |$$$$$$$  |
+ \______/ \__|       \_______| \_______|   \____/ \__| \______/ \__|  \__|     \______/ \__| \______/ \_______/
+
+-->
+            <group name="Creation Club" type="SelectAny"><plugins order="Ascending">
+
+
+                <!-- Arcane Archer Pack -->
+                <plugin name="Arcane Archer Pack">
+                    <description>This creation does not have an LSP Plugin! Will *you* be the next LSP Plugin Creator?
+
+Arcane Archer Pack adds 1 spell, Telekinesis Arrows, and one power, Bound Quiver.</description>
+                    <image path="fomod\images\Arcane Archer Pack.jpg" />
+                    <conditionFlags><flag name="CreationClub_BGS_SSE_002 Arcane Archer Pack">1</flag></conditionFlags>
+                    <typeDescriptor>
+                        <!--dependencyType>
+                            <defaultType name="Optional" />
+                            <patterns>
+                                <pattern>
+                                    <dependencies>
+                                        <fileDependency file="ccbgssse002-exoticarrows.esl" state="Active" />
+                                        <flagDependency flag="AutoSelect" value="1" />
+                                    </dependencies>
+                                    <type name="Recommended" />
+                                </pattern>
+                            </patterns>
+                        </dependencyType-->
+                        <type name="NotUsable"/>
+                    </typeDescriptor>
+                </plugin>
+
+
+                <!-- Plague of the Dead -->
+                <plugin name="Plague of the Dead">
+                    <description>This creation does not have an LSP Plugin! Will *you* be the next LSP Plugin Creator?
+
+Plague of the Dead adds 4 new learnable Conjuration spells, which summon a Zombie, Foul Zomeiw, Putrid Zombie, and Malignant Zombie respectively.</description>
+                    <image path="fomod\images\Plague of the Dead.jpg" />
+                    <conditionFlags><flag name="CreationClub_BGS_SSE_003 Plague Of The Dead">1</flag></conditionFlags>
+                    <typeDescriptor>
+                        <!--dependencyType>
+                            <defaultType name="Optional" />
+                            <patterns>
+                                <pattern>
+                                    <dependencies>
+                                        <fileDependency file="ccbgssse003-zombies.esl" state="Active" />
+                                        <flagDependency flag="AutoSelect" value="1" />
+                                    </dependencies>
+                                    <type name="Recommended" />
+                                </pattern>
+                            </patterns>
+                        </dependencyType-->
+                        <type name="NotUsable"/>
+                    </typeDescriptor>
+                </plugin>
+
+                
+                <!-- Dwarven Armored Mudcrab -->
+                <plugin name="Dwarven Armored Mudcrab">
+                    <description>This creation does not have an LSP Plugin! Will *you* be the next LSP Plugin Creator?
+
+Dwarven Armored Mudcrab adds a single spell tome that allows you to summon the mudcrab.</description>
+                    <image path="fomod\images\Dwarven Armored Mudcrab.jpg" />
+                    <conditionFlags><flag name="CreationClub_BGS_SSE_010 Dwarven Armored Mudcrab">1</flag></conditionFlags>
+                    <typeDescriptor>
+                        <!--dependencyType>
+                            <defaultType name="Optional" />
+                            <patterns>
+                                <pattern>
+                                    <dependencies>
+                                        <fileDependency file="ccbgssse010-petdwarvenarmoredmudcrab.esl" state="Active" />
+                                        <flagDependency flag="AutoSelect" value="1" />
+                                    </dependencies>
+                                    <type name="Recommended" />
+                                </pattern>
+                            </patterns>
+                        </dependencyType-->
+                        <type name="NotUsable"/>
+                    </typeDescriptor>
+                </plugin>
+
+
+                <!-- Arcane Accessories -->
+                <plugin name="Arcane Accessories">
+                    <description>This creation does not have an LSP Plugin! Will *you* be the next LSP Plugin Creator?
+
+Arcane Accessories adds a bit more than mere accessories. In addition to robes, it also adds a total of 16 Spell Tomes and adds them all to a chest in Hobb's Fall Cave. Some of these spells, the Elemental Flare/Bolt/Burst/Blast spells, are particularly powerful. This was among Skel's cited reasons for the request!</description>
+                    <image path="fomod\images\Arcane Accessories.jpg" />
+                    <conditionFlags><flag name="CreationClub_BGS_SSE_014 Arcane Accessories">1</flag></conditionFlags>
+                    <typeDescriptor>
+                        <!--dependencyType>
+                            <defaultType name="Optional" />
+                            <patterns>
+                                <pattern>
+                                    <dependencies>
+                                        <fileDependency file="ccbgssse014-spellpack01.esl" state="Active" />
+                                        <flagDependency flag="AutoSelect" value="1" />
+                                    </dependencies>
+                                    <type name="Recommended" />
+                                </pattern>
+                            </patterns>
+                        </dependencyType-->
+                        <type name="NotUsable"/>
+                    </typeDescriptor>
+                </plugin>
+
+
+                <!-- Pet Nix-Hound -->
+                <plugin name="Nix-Hound">
+                    <description>This creation does not have an LSP Plugin! Will *you* be the next LSP Plugin Creator?
+
+Nix-Hound adds a single spell tome that allows you to summon the Nix-Hound.</description>
+                    <image path="fomod\images\Nix-Hound.jpg" />
+                    <conditionFlags><flag name="CreationClub_BGS_SSE_035 Plague Of The Dead">1</flag></conditionFlags>
+                    <typeDescriptor>
+                        <!--dependencyType>
+                            <defaultType name="Optional" />
+                            <patterns>
+                                <pattern>
+                                    <dependencies>
+                                        <fileDependency file="ccbgssse035-petnhound.esl" state="Active" />
+                                        <flagDependency flag="AutoSelect" value="1" />
+                                    </dependencies>
+                                    <type name="Recommended" />
+                                </pattern>
+                            </patterns>
+                        </dependencyType-->
+                        <type name="NotUsable"/>
+                    </typeDescriptor>
+                </plugin>
+
+
+                <!-- The Cause -->
+                <plugin name="The Cause">
+                    <description>This creation does not have an LSP Plugin! Will *you* be the next LSP Plugin Creator?
+
+The Cause adds 2 new Conjuration Spell Tomes, one to summon a Daedric Horse and another for an Ayleid Lich.</description>
+                    <image path="fomod\images\The Cause.jpg" />
+                    <conditionFlags><flag name="CreationClub_BGS_SSE_067 The Cause">1</flag></conditionFlags>
+                    <typeDescriptor>
+                        <!--dependencyType>
+                            <defaultType name="Optional" />
+                            <patterns>
+                                <pattern>
+                                    <dependencies>
+                                        <fileDependency file="ccbgssse067-daedinv.esm" state="Active" />
+                                        <flagDependency flag="AutoSelect" value="1" />
+                                    </dependencies>
+                                    <type name="Recommended" />
+                                </pattern>
+                            </patterns>
+                        </dependencyType-->
+                        <type name="NotUsable"/>
+                    </typeDescriptor>
+                </plugin>
+
+
+                <!-- Necromantic Grimoire -->
+                <plugin name="Necromantic Grimoire">
+                    <description>This creation does not have an LSP Plugin! Will *you* be the next LSP Plugin Creator?
+
+Necromantic Grimoire adds 13 new spell tomes: 11 summon spells, a Banish Undead spell, and a spell to regen health &amp; magicka when a conjured/reanimated minion bites the dust.</description>
+                    <image path="fomod\images\Necromatic Grimoire.jpg" />
+                    <conditionFlags><flag name="CreationClub_VSV_SSE_003 Necromantic Grimoire">1</flag></conditionFlags>
+                    <typeDescriptor>
+                        <!--dependencyType>
+                            <defaultType name="Optional" />
+                            <patterns>
+                                <pattern>
+                                    <dependencies>
+                                        <fileDependency file="ccvsvsse003-necroarts.esl" state="Active" />
+                                        <flagDependency flag="AutoSelect" value="1" />
+                                    </dependencies>
+                                    <type name="Recommended" />
+                                </pattern>
+                            </patterns>
+                        </dependencyType-->
+                        <type name="NotUsable"/>
+                    </typeDescriptor>
+                </plugin>
+
+
+                <!-- Saints & Seducers -->
+                <plugin name="Saints and Seducers">
+                    <description>This creation does not have an LSP Plugin! Will *you* be the next LSP Plugin Creator?
+
+Saints and Seducers, in addition to the quest and the incredible Soul Tomato, adds 5 spell tomes to conjure both Saints and Seducers, and another that can only be crafted at the Atronach Forge that summons the Saint Staada.</description>
+                    <image path="fomod\images\Saints and Seducers.jpg" />
+                    <conditionFlags><flag name="CreationClub_BGS_SSE_025 Saints and Seducers">1</flag></conditionFlags>
+                    <typeDescriptor>
+                        <!--dependencyType>
+                            <defaultType name="Optional" />
+                            <patterns>
+                                <pattern>
+                                    <dependencies>
+                                        <fileDependency file="ccBGSSSE025-AdvDSGS.esm" state="Active" />
+                                        <flagDependency flag="AutoSelect" value="1" />
+                                    </dependencies>
+                                    <type name="Recommended" />
+                                </pattern>
+                            </patterns>
+                        </dependencyType-->
+                        <type name="NotUsable"/>
+                    </typeDescriptor>
+                </plugin>
+
+
+                <!-- Bittercup -->
+                <plugin name="Bittercup">
+                    <description>This creation does not have an LSP Plugin! Will *you* be the next LSP Plugin Creator?
+
+Adds a more powerful version of the rare Transmute Mineral Ore that transmutes both Iron and Silver directly to Gold instead of the default Iron --&gt; Silver --&gt; Gold.</description>
+                    <image path="fomod\images\Bittercup.jpg" />
+                    <conditionFlags><flag name="CreationClub_KRT_SSE_001 Bittercup">1</flag></conditionFlags>
+                    <typeDescriptor>
+                        <!--dependencyType>
+                            <defaultType name="Optional" />
+                            <patterns>
+                                <pattern>
+                                    <dependencies>
+                                        <fileDependency file="cckrtsse001_altar.esl" state="Active" />
+                                        <flagDependency flag="AutoSelect" value="1" />
+                                    </dependencies>
+                                    <type name="Recommended" />
+                                </pattern>
+                            </patterns>
+                        </dependencyType-->
+                        <type name="NotUsable"/>
+                    </typeDescriptor>
+                </plugin>
+
+
+            </plugins></group>
+<!--
+
+$$\      $$\                     $$\                 $$\      $$\                 $$\
+$$$\    $$$ |                    \__|                $$$\    $$$ |                $$ |
+$$$$\  $$$$ | $$$$$$\   $$$$$$\  $$\  $$$$$$$\       $$$$\  $$$$ | $$$$$$\   $$$$$$$ | $$$$$$$\
+$$\$$\$$ $$ | \____$$\ $$  __$$\ $$ |$$  _____|      $$\$$\$$ $$ |$$  __$$\ $$  __$$ |$$  _____|
+$$ \$$$  $$ | $$$$$$$ |$$ /  $$ |$$ |$$ /            $$ \$$$  $$ |$$ /  $$ |$$ /  $$ |\$$$$$$\
+$$ |\$  /$$ |$$  __$$ |$$ |  $$ |$$ |$$ |            $$ |\$  /$$ |$$ |  $$ |$$ |  $$ | \____$$\
+$$ | \_/ $$ |\$$$$$$$ |\$$$$$$$ |$$ |\$$$$$$$\       $$ | \_/ $$ |\$$$$$$  |\$$$$$$$ |$$$$$$$  |
+\__|     \__| \_______| \____$$ |\__| \_______|      \__|     \__| \______/  \_______|\_______/
+                       $$\   $$ |
+                       \$$$$$$  |
+                        \______/
+
+-->
+            <!--group name="Magic Mods" type="SelectAny"></group-->
+
+<!--
+
+$$\      $$\ $$\                               $$\ $$\
+$$$\    $$$ |\__|                              $$ |$$ |
+$$$$\  $$$$ |$$\  $$$$$$$\  $$$$$$$\  $$$$$$\  $$ |$$ | $$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$\   $$\  $$$$$$$\
+$$\$$\$$ $$ |$$ |$$  _____|$$  _____|$$  __$$\ $$ |$$ | \____$$\ $$  __$$\ $$  __$$\ $$  __$$\ $$ |  $$ |$$  _____|
+$$ \$$$  $$ |$$ |\$$$$$$\  $$ /      $$$$$$$$ |$$ |$$ | $$$$$$$ |$$ |  $$ |$$$$$$$$ |$$ /  $$ |$$ |  $$ |\$$$$$$\
+$$ |\$  /$$ |$$ | \____$$\ $$ |      $$   ____|$$ |$$ |$$  __$$ |$$ |  $$ |$$   ____|$$ |  $$ |$$ |  $$ | \____$$\
+$$ | \_/ $$ |$$ |$$$$$$$  |\$$$$$$$\ \$$$$$$$\ $$ |$$ |\$$$$$$$ |$$ |  $$ |\$$$$$$$\ \$$$$$$  |\$$$$$$  |$$$$$$$  |
+\__|     \__|\__|\_______/  \_______| \_______|\__|\__| \_______|\__|  \__| \_______| \______/  \______/ \_______/
+
+-->
+            <!--group name="Miscellaneous" type="SelectAny"></group-->
+        
+        
+        
+        </optionalFileGroups></installStep>
+    </installSteps>
+
+    <conditionalFileInstalls><patterns>
+        
+        <!-- Framework -->
+        <pattern> 
+            <dependencies></dependencies><files><folder source="Backend" destination="" priority="-1" alwaysInstall="true"/></files>
+        </pattern>
+
+        <!--
+            These conditional file installs are generated from options in LSP Plugins step
+            using the Regular Expression stored at https://regex101.com/r/EAQYOo/1
+            You can generate some too!
+        -->
+
+        <pattern>
+            <dependencies><flagDependency flag="DLC_BGS_SSE_00 Skyrim" value="1" /></dependencies>
+            <files><folder source="Plugins\DLC\BGS_SSE_00 Skyrim" destination="" priority="0"/></files>
+        </pattern>
+        <pattern>
+            <dependencies><flagDependency flag="DLC_BGS_SSE_02 Dawnguard" value="1" /></dependencies>
+            <files><folder source="Plugins\DLC\BGS_SSE_02 Dawnguard" destination="" priority="0"/></files>
+        </pattern>
+        <pattern>
+            <dependencies><flagDependency flag="DLC_BGS_SSE_04 Dragonborn" value="1" /></dependencies>
+            <files><folder source="Plugins\DLC\BGS_SSE_04 Dragonborn" destination="" priority="0"/></files>
+        </pattern>
+        <pattern>
+            <dependencies><flagDependency flag="CreationClub_BGS_SSE_002 Arcane Archer Pack" value="1" /></dependencies>
+            <files><folder source="Plugins\CreationClub\BGS_SSE_002 Arcane Archer Pack" destination="" priority="0"/></files>
+        </pattern>
+        <pattern>
+            <dependencies><flagDependency flag="CreationClub_BGS_SSE_003 Plague Of The Dead" value="1" /></dependencies>
+            <files><folder source="Plugins\CreationClub\BGS_SSE_003 Plague Of The Dead" destination="" priority="0"/></files>
+        </pattern>
+        <pattern>
+            <dependencies><flagDependency flag="CreationClub_BGS_SSE_010 Dwarven Armored Mudcrab" value="1" /></dependencies>
+            <files><folder source="Plugins\CreationClub\BGS_SSE_010 Dwarven Armored Mudcrab" destination="" priority="0"/></files>
+        </pattern>
+        <pattern>
+            <dependencies><flagDependency flag="CreationClub_BGS_SSE_014 Arcane Accessories" value="1" /></dependencies>
+            <files><folder source="Plugins\CreationClub\BGS_SSE_014 Arcane Accessories" destination="" priority="0"/></files>
+        </pattern>
+        <pattern>
+            <dependencies><flagDependency flag="CreationClub_BGS_SSE_035 Plague Of The Dead" value="1" /></dependencies>
+            <files><folder source="Plugins\CreationClub\BGS_SSE_035 Plague Of The Dead" destination="" priority="0"/></files>
+        </pattern>
+        <pattern>
+            <dependencies><flagDependency flag="CreationClub_BGS_SSE_067 The Cause" value="1" /></dependencies>
+            <files><folder source="Plugins\CreationClub\BGS_SSE_067 The Cause" destination="" priority="0"/></files>
+        </pattern>
+        <pattern>
+            <dependencies><flagDependency flag="CreationClub_VSV_SSE_003 Necromantic Grimoire" value="1" /></dependencies>
+            <files><folder source="Plugins\CreationClub\VSV_SSE_003 Necromantic Grimoire" destination="" priority="0"/></files>
+        </pattern>
+        <pattern>
+            <dependencies><flagDependency flag="CreationClub_BGS_SSE_025 Saints and Seducers" value="1" /></dependencies>
+            <files><folder source="Plugins\CreationClub\BGS_SSE_025 Saints and Seducers" destination="" priority="0"/></files>
+        </pattern>
+        <pattern>
+            <dependencies><flagDependency flag="CreationClub_KRT_SSE_001 Bittercup" value="1" /></dependencies>
+            <files><folder source="Plugins\CreationClub\KRT_SSE_001 Bittercup" destination="" priority="0"/></files>
+        </pattern>
+
+    </patterns></conditionalFileInstalls>
+</config>

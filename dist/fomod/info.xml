@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="Z:/Info.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<fomod>
+    <Name>Linear Spell Progression</Name>
+    <Author>BellCube Dev</Author>
+    <Version MachineVersion="0.1.0">Open Alpha - 0.1.0</Version>
+    <Description>Linear Spell Progression is an easily-patched framework for, well, the linear progression of spells. The goal is to remove the cheatiness of things like the Arcane Apparel mod in the Creation Club, which throws a bunch of spells in your face. Instead of simply buying the best spell tome—or grabbing it out of a chest—you will first need to learn other, more basic spells to achieve the desired effect.</Description>
+    <Website>https://github.com/BellCubeDev/LinearSpellProgression</Website><!--Website>https://www.nexusmods.com/skyrimspecialedition/mods/modID</Website-->
+    <Groups>
+        <Element>Magic - Gameplay</Element>
+    </Groups>
+</fomod>
