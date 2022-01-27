@@ -16,7 +16,7 @@
         }
 
 
-        /* Lines & text */
+        /* Lines and text */
         .arrow_head {
             fill: #7ab648;
             stroke: #7ab648;
