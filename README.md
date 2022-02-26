@@ -1,6 +1,4 @@
-[![GitHub repo size](https://img.shields.io/github/repo-size/BellCubeDev/LinearSpellProgression?style=for-the-badge)](#readme)
-
-[![Copyright 2021 BellCubeDev, All Rights Reserved](https://img.shields.io/badge/©%202021%20BellCubeDev-%20All%20Rights%20Reserved-blue?style=for-the-badge)](#readme) [![All .PSC Files are Public Domain](https://img.shields.io/badge/All%20.PSC%20Files-Are%20Public%20Domain-00bd5e?style=for-the-badge)](#readme)
+[![GitHub repo size](https://img.shields.io/github/repo-size/BellCubeDev/LinearSpellProgression?style=for-the-badge)](#readme)<br>[![Copyright 2021 BellCubeDev, All Rights Reserved](https://img.shields.io/badge/©%202021%20BellCubeDev-%20All%20Rights%20Reserved-blue?style=for-the-badge)](#readme) [![All .PSC Files are Public Domain](https://img.shields.io/badge/All%20.PSC%20Files-Are%20Public%20Domain-00bd5e?style=for-the-badge)](#readme)
 
 # Linear Spell Progression
 
